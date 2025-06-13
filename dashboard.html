@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarkston Vendor Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="css/dashboard.css" rel="stylesheet" />
+        <link href="css/passwordlocked.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="login" id="login">
+    <h2>Enter Password to Access Dashboard</h2>
+    <input type="password" id="password" placeholder="Enter password" />
+    <button onclick="checkPassword()">Access</button>
+  </div>
+<div id="quoteSection" class="table-wrapper" style="margin-top: 40px; display: none;">
+<div class="dashboard-layout">
+<aside class="sidebar">
+  <div class="sidebar-header">Boothly Co.</div>
+  <nav>
+    <a href="dashboard.html" class="active"><span>📦</span> <span>Vendors</span></a>
+    <a href="quotes.html" ><span>🧾</span> <span>Quotes</span></a>
+    <a href="customer.html"><span>📝</span> <span>Intake</span></a>
+    <a href="workorder.html"><span>🔧</span> <span>Work Orders</span></a>
+  </nav>
+</aside>
+  <div class="main-content">
+  <div class="container" id="dashboard" style="display:none">
+    <img class="logo" src="img/boothly.png" alt="Boothly Company Logo">
+    <h1>Vendor Submissions</h1>
+    <div class="summary" id="vendorStats"></div>
+    <div class="table-wrapper">
+      <table id="vendorTable">
+        <thead>
+          <tr><th>Vendors</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal" id="editModal">
+    <div class="modal-content">
+      <h3>Edit Vendor</h3>
+      <input type="text" id="editName" placeholder="Business Name" />
+      <input type="text" id="editContact" placeholder="Contact Name" />
+      <input type="text" id="editPhone" placeholder="Phone" />
+      <input type="email" id="editEmail" placeholder="Email" />
+      <textarea id="editNotes" rows="3" placeholder="Notes"></textarea>
+      <button onclick="saveEdit()">Save Changes</button>
+      <button onclick="closeEditModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
