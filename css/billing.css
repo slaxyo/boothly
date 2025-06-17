@@ -1,85 +1,88 @@
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
-  background-color: #f9fafb;
-  color: #111;
-}
-
-.billing-container {
-  max-width: 640px;
-  margin: 6rem auto;
-  padding: 0 1rem;
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #fff;
   text-align: center;
+  padding: 60px 20px;
 }
 
-.logo {
-  width: 80px;
-  margin-bottom: 2rem;
+.billing-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 h1 {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+h1 span {
+  font-weight: 500;
+  color: #ccc;
+  font-size: 1.5rem;
 }
 
 p {
-  font-size: 1.05rem;
-  color: #444;
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
 }
 
-h2 {
-  font-size: 1.2rem;
-  margin: 2rem 0 1rem;
-}
-
-h3 {
-  font-size: 1.1rem;
+.cta-section,
+.alt-action {
   margin-top: 3rem;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-}
-
-ul li {
-  margin-bottom: 1.5rem;
-  font-size: 1.05rem;
-}
-
-ul li span {
-  display: block;
-  color: #666;
-  font-size: 0.95rem;
-  margin-top: 4px;
-}
-
-a {
-  color: #0071e3;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
 }
 
 .btn {
   display: inline-block;
-  margin-top: 3rem;
-  background-color: #000;
+  margin-top: 12px;
+  background: #0071e3;
+  padding: 10px 20px;
+  border-radius: 12px;
   color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 999px;
   text-decoration: none;
   font-weight: 500;
-  transition: background-color 0.2s ease;
 }
 
-.btn:hover {
-  background-color: #222;
+.btn.secondary {
+  background: #444;
+}
+
+.info-box {
+  background: #1c1c1e;
+  padding: 20px;
+  border-radius: 14px;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #aaa;
+}
+
+footer {
+  margin-top: 4rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+.stripe-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 2rem;
+  color: #aaa;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.stripe-notice img {
+  height: 20px;
+  margin-bottom: 25px;
 }
