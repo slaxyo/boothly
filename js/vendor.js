@@ -83,3 +83,46 @@
         showStep(currentStep);
       }
     });
+    const stripeLinks = {
+  food: "https://buy.stripe.com/00wfZi3By9Oj5Na7E56Na00",
+  "non-food": "https://buy.stripe.com/28E3cw0pm0dJdfCe2t6Na01",
+};
+
+document.getElementById("vendorForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const data = {
+    vendorName: document.getElementById("vendorName").value,
+    contactName: document.getElementById("contactName").value,
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
+    vendorType: document.getElementById("vendorType").value,
+    description: document.getElementById("description").value,
+    setupTime: document.getElementById("setupTime").value,
+    power: document.getElementById("power").value,
+    table: document.getElementById("table").value,
+    social: document.getElementById("social").value,
+    notes: document.getElementById("notes").value,
+  };
+
+  const { error } = await supabaseClient.from("vendors").insert([data]);
+
+  if (error) {
+    alert("Something went wrong while submitting.");
+    console.error(error);
+  } else {
+    // Redirect to Stripe payment link based on vendorType
+    const paymentUrl = stripeLinks[data.vendorType];
+    if (paymentUrl) {
+      const fallbackLink = document.getElementById("paymentFallbackLink");
+fallbackLink.href = paymentUrl;
+
+      window.location.href = paymentUrl;
+    } else {
+      document.getElementById("confirmationModal").style.display = "flex";
+      this.reset();
+      currentStep = 0;
+      showStep(currentStep);
+    }
+  }
+});

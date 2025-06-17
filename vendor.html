@@ -116,12 +116,16 @@
   </main>
 
   <!-- Confirmation Modal -->
-  <div class="modal" id="confirmationModal">
-    <div class="modal-content">
-      <h2>Thank You!</h2>
-      <p>Your application has been received. We'll be in touch soon.</p>
-    </div>
+<div class="modal" id="confirmationModal">
+  <div class="modal-content">
+    <h2>Thank You!</h2>
+    <p>
+      Redirecting to payment. 
+      <a id="paymentFallbackLink" href="#" target="_blank">Didn't load? Click here.</a>
+    </p>
   </div>
+</div>
+
   <!-- Form Logic -->
   <script src="js/vendor.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

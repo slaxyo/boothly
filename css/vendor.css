@@ -33,7 +33,7 @@
     }
     .social-links a {
       margin: 0 10px;
-      color: #1e40af;
+      color: #414e57;
       text-decoration: none;
       font-weight: 600;
     }
@@ -59,7 +59,7 @@
     }
     button {
       margin-top: 20px;
-      background: #3b82f6;
+      background: #414e57;
       color: white;
       border: none;
       padding: 14px 20px;
@@ -69,7 +69,7 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-    button:hover { background: #2563eb; }
+    button:hover { background: #1f2529; }
     .form-buttons {
       display: flex;
       justify-content: space-between;
@@ -129,7 +129,7 @@
 .progress-bar {
   width:100%; height:6px; background:#eee; border-radius:4px; margin:2rem 0;
 }
-.progress   { height:100%; width:0; background:#0071e3; border-radius:4px; transition:width .3s }
+.progress   { height:100%; width:0; background:#414e57; border-radius:4px; transition:width .3s }
 
 /* multi-step form */
 .step { display:none; }
