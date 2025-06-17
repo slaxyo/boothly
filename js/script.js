@@ -57,10 +57,10 @@ const questions = [
   }
 
   function showResult() {
-    const result = `you seem like a good fit for: <strong>the clarkston summer market</strong>!`;
+    const result = `Congrats! You are a perfect fit for <strong>the Clarkston Summer Market!</strong>`;
     quizContent.innerHTML = `
       <div class="quiz-step">
-        <h3>all done!</h3>
+        <h3>All done!</h3>
         <p>${result}</p>
         <button class="next-btn" onclick="closeQuiz()">close</button>
       </div>
