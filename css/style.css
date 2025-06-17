@@ -11,7 +11,7 @@ body {
   color: #000000;
   line-height: 1.6;
   font-size: 16px;
-  padding: 0 1rem;
+
 }
 
 /* navbar */
@@ -322,9 +322,7 @@ body {
 }
 
 .event-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
+
 }
 
 .event-image img {
@@ -695,3 +693,78 @@ body {
 .contact-form button:hover {
   background-color: #005ec4;
 }
+/* announcement-bar.css */
+.announcement-bar{
+  --grad-start:#67154d;
+  --grad-end:#2a0d9f;
+  background:linear-gradient(90deg,var(--grad-start),var(--grad-end));
+  color:#fff;
+  font:14px/1.4 "Inter",system-ui,sans-serif;
+  padding:8px 0;
+  position:relative;
+  width: 100%;
+  z-index:1000;
+}
+
+/* keeps content centered like Apple sites */
+.announcement-inner{
+  max-width:1280px;
+  margin:0 auto;
+  padding:0 24px;
+  display:flex;
+  gap:24px;
+  align-items:center;
+  justify-content:center; /* text looks centered */
+}
+.announcement-msg{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  font-size: 15px;
+}
+
+/* small purple badge */
+.badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;height:22px;
+  border-radius:6px;
+  background:#a440f2;
+}
+
+.announcement-actions{margin-left:auto;display:flex;gap:12px;}
+
+/* buttons */
+.btn-primary,
+.btn-outline{
+  padding:6px 14px;
+  border-radius:6px;
+  font-weight:500;
+  font-size:14px;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:opacity .2s ease;
+}
+.btn-primary{background:#000;color:#fff}
+.btn-outline{border:1px solid #b59dff;color:#fff; padding: 5px;}
+.btn-primary:hover,
+.btn-outline:hover{opacity:.85}
+
+/* close (X) */
+.announcement-close{
+  position:absolute;
+  right:16px;top:50%;
+  transform:translateY(-50%);
+  background:none;
+  border:0;
+  color:#fff;
+  font-size:20px;
+  line-height:1;
+  cursor:pointer;
+}
+
+/* optional: hide bar after close */
+.announcement-close:focus,
+.announcement-close:hover{opacity:.7}
+.announcement-close:active{opacity:.5}

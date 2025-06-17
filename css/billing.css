@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #f9fafb;
+  color: #111;
+}
+
+.billing-container {
+  max-width: 640px;
+  margin: 6rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 2rem 0 1rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-top: 3rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+ul li {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+ul li span {
+  display: block;
+  color: #666;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+a {
+  color: #0071e3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 3rem;
+  background-color: #000;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #222;
+}

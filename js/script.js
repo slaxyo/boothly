@@ -1,69 +1,46 @@
 
-  const quizModal = document.getElementById("quizModal");
-  const quizContent = document.getElementById("quizContent");
+const SUPABASE_URL = "https://stgcknunpvlcndtwxdmc.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN0Z2NrbnVucHZsY25kdHd4ZG1jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkwNTM2MTUsImV4cCI6MjA2NDYyOTYxNX0.H2JawYsroeA5Tnc_iIeGhRX0kLcUIk0bP3F7rK0JyX4";
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const questions = [
-  {
-    q: "What kind of product do you sell?",
-    options: ["👕 Clothing", "🎨 Art", "🍰 Food", "💍 Accessories"]
-  },
-  {
-    q: "What crowd do you want to reach?",
-    options: ["👨‍👩‍👧 Families", "🧑‍🎤 Young Adults", "🏡 Locals", "🧳 Tourists"]
-  },
-  {
-    q: "What size booth do you prefer?",
-    options: ["🪑 Small Table", "⛺ 10×10 Tent", "🤝 Shared Space"]
-  }
-];
+/* Stripe links keyed to tier  */
+const stripeLinks = {
+  bronze : "https://buy.stripe.com/bronze_link",
+  silver : "https://buy.stripe.com/silver_link",
+  gold   : "https://buy.stripe.com/gold_link",
+  custom : "https://buy.stripe.com/custom_link"
+};
 
+document.getElementById("vendorForm").addEventListener("submit", async e => {
+  e.preventDefault();
 
-  let currentStep = 0;
-  let answers = [];
+  const data = {
+    business_name : document.getElementById("vendorName").value,
+    contact_name  : document.getElementById("contactName").value,
+    phone         : document.getElementById("phone").value,
+    email         : document.getElementById("email").value,
+    sponsor_goal  : document.getElementById("sponsorGoal").value,
+    tier          : document.getElementById("tier").value,
+    experience    : document.getElementById("experience").value === "yes",
+    metrics       : document.getElementById("metrics").value,
+    social        : document.getElementById("social").value,
+    notes         : document.getElementById("notes").value
+  };
 
-  function openQuiz() {
-    quizModal.style.display = "flex";
-    showStep();
-  }
+  const { error } = await sb.from("sponsors").insert([data]);
 
-  function closeQuiz() {
-    quizModal.style.display = "none";
-    currentStep = 0;
-    answers = [];
-    quizContent.innerHTML = "";
-  }
-
-  function showStep() {
-    const step = questions[currentStep];
-    quizContent.innerHTML = `
-      <div class="quiz-step">
-        <h3>${step.q}</h3>
-        <div class="quiz-options">
-          ${step.options.map(option => 
-            `<button onclick="selectAnswer('${option}')">${option}</button>`).join("")}
-        </div>
-      </div>
-    `;
+  if (error) {
+    alert("Submission failed — please try again.");
+    console.error(error);
+    return;
   }
 
-  function selectAnswer(option) {
-    answers[currentStep] = option;
-    currentStep++;
-    if (currentStep < questions.length) {
-      showStep();
-    } else {
-      showResult();
-    }
+  /* redirect to matching payment link */
+  const payURL = stripeLinks[data.tier];
+  if (payURL) {
+    document.getElementById("paymentFallbackLink").href = payURL;
+    window.location.href = payURL;
+  } else {
+    document.getElementById("confirmationModal").style.display = "flex";
   }
-
-  function showResult() {
-    const result = `Congrats! You are a perfect fit for <strong>the Clarkston Summer Market!</strong>`;
-    quizContent.innerHTML = `
-      <div class="quiz-step">
-        <h3>All done!</h3>
-        <p>${result}</p>
-        <button class="next-btn" onclick="closeQuiz()">close</button>
-      </div>
-    `;
-  }
-
+});

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sponsor Dashboard</title>
+  <link rel="stylesheet" href="css/passwordlocked.css"/>
+  <link rel="stylesheet" href="css/sponsorshipdash.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+
+</head>
+<body>
+  <header class="navbar">
+    <h1>Sponsor Dashboard</h1>
+  </header>
+<aside class="sidebar">
+  <div class="sidebar-header">Boothly Co.</div>
+  <nav>
+    <a href="dashboard.html" ><span>📦</span> <span>Vendors</span></a>
+    <a href="sponsorshipdash.html" class="active"><span>🧾</span> <span>Sponsorships</span></a>
+  </nav>
+</aside>
+  <main>
+    <section class="filter-bar">
+      <input type="text" id="searchInput" placeholder="Search sponsors..." />
+    </section>
+
+    <section>
+      <table id="sponsorTable">
+        <thead>
+          <tr>
+            <th>Business</th>
+            <th>Contact</th>
+            <th>Tier</th>
+            <th>Paid</th>
+            <th>Shoutout</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Data filled in via JS -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="js/sponsorshipdash.js"></script>
+</body>
+</html>

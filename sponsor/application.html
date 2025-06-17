@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarkston Summer Market — Sponsor Sign-up</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+
+  <!-- Styles -->
+  <link href="/css/style.css"   rel="stylesheet" />
+  <link href="/css/vendor.css"  rel="stylesheet" />
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+
+<body>
+  <!-- Announcement bar (optional) -->
+  <div class="announcement-bar" id="announcement">
+    <div class="announcement-inner">
+      <div class="announcement-msg">
+        <span class="badge">★</span>
+        <span>Early-bird sponsor spots now open.</span>
+      </div>
+      <div class="announcement-actions">
+        <a class="btn-primary" href="#vendorForm">Apply now</a>
+      </div>
+    </div>
+    <button class="announcement-close" aria-label="Dismiss" onclick="document.getElementById('announcement').remove();">&times;</button>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo1">Boothly&nbsp;Co.</div>
+    <nav class="nav-tabs">
+      <a href="/index.html"><button class="tab">🏠 <span>Home</span></button></a>
+      <button class="tab">📅 <span>Events</span></button>
+      <a href="/vendor.html"><button class="tab">🧺 <span>Vendors</span></button></a>
+      <a href="/contact.html"><button class="tab">✉️ <span>Contact</span></button></a>
+    </nav>
+  </header>
+
+  <!-- Form -->
+  <main class="container">
+    <img src="/img/boothly.png" alt="Boothly Logo" class="logo" style="width:20%" />
+    <h1>Clarkston Summer Market&nbsp;— Sponsor Application</h1>
+
+    <div class="social-links">
+      Follow us:
+      <a href="https://instagram.com/boothlyco" target="_blank">@boothlyco</a>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-bar"><div id="progress" class="progress"></div></div>
+
+    <form id="vendorForm">
+      <!-- STEP 1 -->
+      <div class="step active">
+        <label for="vendorName">Business Name</label>
+        <input id="vendorName" name="vendorName" type="text" required />
+
+        <label for="contactName">Contact Name</label>
+        <input id="contactName" name="contactName" type="text" required />
+
+        <label for="phone">Phone Number</label>
+        <input id="phone" name="phone" type="tel" placeholder="(XXX) XXX-XXXX" required />
+
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email" required />
+
+        <div class="form-buttons">
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step">
+        <label for="sponsorGoal">Primary sponsorship goal (e.g.&nbsp;awareness, lead-gen, sales, CSR)</label>
+        <textarea id="sponsorGoal" name="sponsorGoal" rows="3" required></textarea>
+
+        <label for="tier">Preferred sponsorship tier / budget range</label>
+        <select id="tier" name="tier" required>
+          <option value="" disabled selected>Select a tier</option>
+          <option value="community">Community Sponsor — $100</option>
+          <option value="market">Market Sponsor — $250</option>
+          <option value="headline">Headline Sponsor — $500</option>
+          <option value="custom">Custom / other</option>
+        </select>
+
+        <label for="experience">Past event-sponsorship experience?</label>
+        <select id="experience" name="experience" required>
+          <option value="" disabled selected>Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="metrics">Metrics that define success for you</label>
+        <textarea id="metrics" name="metrics" rows="3"></textarea>
+
+        <label for="social">Instagram or Website (optional)</label>
+        <input id="social" name="social" type="text" placeholder="@brand / site.com" />
+
+        <label for="notes">Additional notes (optional)</label>
+        <textarea id="notes" name="notes" rows="3"></textarea>
+
+        <label class="checkbox-label">
+          <input type="checkbox" required />
+          I agree to the sponsor fee and arrival requirements.
+        </label>
+
+        <div class="form-buttons">
+          <button type="button" onclick="prevStep()">Back</button>
+          <button type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <!-- Confirmation modal -->
+  <div id="confirmationModal" class="modal">
+    <div class="modal-content">
+      <h2>Thank you!</h2>
+      <p>
+        Redirecting to payment…<br />
+        <a id="paymentFallbackLink" href="#" target="_blank">Didn’t load? Click here.</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/application.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</body>
+</html>
