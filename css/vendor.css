@@ -2,7 +2,7 @@
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background: linear-gradient(135deg, #dbeafe, #f0f9ff);
+      background: linear-gradient(135deg, #ffffff, #ffffff);
       padding: 40px 20px;
       color: #111827;
     }
@@ -125,3 +125,18 @@
       max-width: 500px;
       text-align: center;
     }
+    /* progress bar */
+.progress-bar {
+  width:100%; height:6px; background:#eee; border-radius:4px; margin:2rem 0;
+}
+.progress   { height:100%; width:0; background:#0071e3; border-radius:4px; transition:width .3s }
+
+/* multi-step form */
+.step { display:none; }
+.step.active { display:block; }
+
+/* basic modal override (inherits overlay styles from shared css) */
+.modal-content {
+  max-width:360px;
+  text-align:center;
+}

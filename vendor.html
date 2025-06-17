@@ -3,23 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clarkston Summer Market Vendor Sign-Up</title>
+  <title>Clarkston Summer Market — Vendor Sign-Up</title>  <!-- Shared Boothly Styles -->
+
+<script src="https://unpkg.com/@barba/core"></script>
+
+
+  <!-- Fonts & Icons --> 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link href="css/vendor.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link href="css/vendor.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+
+  <!-- Supabase (for form handling) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
 </head>
-<body>
-  <div class="container">
-    <img style="width: 20%;" src="img/boothly.png" alt="Boothly Company Logo" class="logo">
+<body> 
+   <header class="navbar">
+    <div class="logo1">Boothly Co.</div>
+    <nav class="nav-tabs">
+      <a href="index.html"><button class="tab">🏠 <span>Home</span></button></a>
+      <button class="tab">📅 <span>Events</span></button>
+      <a href="vendor.html"><button class="tab active">🧺 <span>Vendors</span></button></a>
+      <a href="contact.html"><button class="tab">✉️ <span>Contact</span></button></a>
+    </nav>
+  </header>
+
+
+  <!-- Navigation Bar -->
+
+
+  <!-- Form Content -->
+  <main class="container">
+    <img src="img/boothly.png" alt="Boothly Logo" style="width: 20%;" class="logo" />
+
     <h1>Clarkston Summer Market Vendor Sign-Up</h1>
     <div class="social-links">
       Follow us: <a href="https://instagram.com/boothlyco" target="_blank">@boothlyco</a>
     </div>
-    <div class="progress-bar"><div class="progress" id="progress"></div></div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- Multi-Step Form -->
     <form id="vendorForm">
+      <!-- Step 1 -->
       <div class="step active">
         <label for="vendorName">Vendor/Business Name</label>
         <input type="text" id="vendorName" name="vendorName" required />
@@ -38,6 +69,7 @@
         </div>
       </div>
 
+      <!-- Step 2 -->
       <div class="step">
         <label for="vendorType">Type of Vendor</label>
         <select id="vendorType" name="vendorType" required>
@@ -64,10 +96,10 @@
           <option value="no">No</option>
         </select>
 
-        <label for="social">Instagram or Website (optional)</label>
+        <label for="social">Instagram or Website (Optional)</label>
         <input type="text" id="social" name="social" placeholder="@boothlyco or boothly.co" />
 
-        <label for="notes">Additional Notes (optional)</label>
+        <label for="notes">Additional Notes (Optional)</label>
         <textarea id="notes" name="notes" rows="3"></textarea>
 
         <label class="checkbox-label">
@@ -81,15 +113,18 @@
         </div>
       </div>
     </form>
-  </div>
+  </main>
 
+  <!-- Confirmation Modal -->
   <div class="modal" id="confirmationModal">
     <div class="modal-content">
-      <h2>Thank you!</h2>
+      <h2>Thank You!</h2>
       <p>Your application has been received. We'll be in touch soon.</p>
     </div>
   </div>
-
+  <!-- Form Logic -->
   <script src="js/vendor.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
 </body>
 </html>
