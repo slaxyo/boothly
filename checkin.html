@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vendor Check-In</title>
+  <link rel="stylesheet" href="css/checkin.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <h1>Vendor Check-In</h1>
+  </header>
+
+  <main>
+    <section class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search vendor name...">
+    </section>
+
+    <section>
+      <table id="vendorTable">
+        <thead>
+          <tr>
+            <th>Vendor</th>
+            <th>Contact</th>
+            <th>Checked In</th>
+            <th>Mark</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="js/checkin.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background: #f9fbfd;
+  color: #111;
+}
+
+.navbar {
+  background: black;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+.search-bar {
+  padding: 1rem;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 80%;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+thead {
+  background: #efefef;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  border: none;
+  background: #0071e3;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button.checked {
+  background: #27ae60;
+}
