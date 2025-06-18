@@ -97,19 +97,3 @@ document.getElementById("vendorForm").addEventListener("submit", async function 
     showStep(currentStep);
   }
 });
-
-async function sendConfirmationEmail(email, name) {
-  await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: "Bearer re_gkimdaLE_EsHQ8yqFJNdPZyTZz3DnYRci",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      from: "Boothly <noreply@boothly.co>",
-      to: email,
-      subject: "Thanks for signing up!",
-      html: `<p>Hey ${name},</p><p>Thanks for registering. We’ll contact you shortly with the next steps.</p>`
-    })
-  });
-}
