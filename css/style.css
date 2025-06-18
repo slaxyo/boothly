@@ -146,7 +146,7 @@ body {
   opacity: 0.6;
 }
 .what-we-do {
-  background-color: #f7faff;
+  background: white;
   padding: 4rem 1rem;
   text-align: center;
 }
@@ -768,3 +768,182 @@ body {
 .announcement-close:focus,
 .announcement-close:hover{opacity:.7}
 .announcement-close:active{opacity:.5}
+.sona-section {
+  background: linear-gradient(to bottom, #0e0b18, #5a207a);
+  color: white;
+  padding: 80px 20px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.sona-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sona-section h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.sona-section h1 span {
+  color: #c99eff;
+}
+
+.sona-subtext {
+  font-size: 1.1rem;
+  color: #d6c6e7;
+  margin: 1rem 0 3rem;
+}
+
+.sona-card {
+  display: flex;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  padding: 40px;
+  gap: 30px;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.sona-card-text {
+  flex: 1 1 300px;
+  text-align: left;
+}
+
+.sona-card-text h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.sona-card-text p {
+  color: #cfc4e7;
+  margin-bottom: 16px;
+}
+
+.learn-more {
+  color: #a87ffb;
+  text-decoration: none;
+}
+
+.sona-card-visual {
+  flex: 1 1 300px;
+  background: #1f1a2e;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.sona-fake-ui {
+  font-size: 0.9rem;
+  text-align: left;
+  color: #eae0ff;
+}
+
+.ui-header {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.ui-body {
+  background: #2c2240;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.ui-body p {
+  margin: 10px 0;
+}
+
+.sona-feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.sona-feature {
+  flex: 1 1 300px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 25px;
+  text-align: left;
+}
+
+.sona-feature h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.sona-feature p {
+  color: #d3c1e7;
+  font-size: 0.95rem;
+}
+.sona-card-visual {
+  flex: 1 1 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 85%;
+  background: none;
+}
+
+.sona-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  
+}
+.purple-section {
+  color: #000000;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.event-highlight-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 1000px;
+  margin: 30px auto 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap;
+}
+
+.event-text {
+  flex: 1 1 300px;
+  text-align: left;
+  padding: 20px;
+}
+
+.event-text p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.btn-purple {
+  background: #2b80ff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.event-icon {
+  flex: 1 1 150px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.event-icon img {
+  width: 60px;
+  height: 60px;
+  filter: brightness(1) invert(0);
+}
