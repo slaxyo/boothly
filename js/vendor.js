@@ -84,7 +84,7 @@ document.getElementById("vendorForm").addEventListener("submit", async function 
     return;
   }
 
-  await sendConfirmationEmail(data.email, data.contactName);
+
 
   const paymentUrl = stripeLinks[data.vendorType];
   if (paymentUrl) {
