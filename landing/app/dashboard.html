@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Boothly</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-[#f9fafb] text-gray-900 font-sans">
+
+<!-- Entire Dashboard Wrapper -->
+<div id="quoteSection" class="table-wrapper mt-10 block">
+  <div class="flex min-h-screen">
+    
+<aside class="fixed top-6 bottom-6 left-6 w-20 bg-white/30 backdrop-blur-md rounded-full shadow-xl z-50 flex flex-col justify-between py-6">
+  <!-- Top Section -->
+  <div class="flex flex-col items-center space-y-6">
+    <!-- Logo -->
+    <div class="w-10 h-10 bg-purple-600 text-white font-bold flex items-center justify-center rounded-full text-sm">
+      B
+    </div>
+
+    <!-- Nav Links -->
+    <nav class="flex flex-col items-center space-y-6 text-xl text-gray-700">
+      <a href="dashboard.html" class="hover:text-black" title="Dashboard">📦</a>
+      <a href="sponsorshipdash.html" class="hover:text-black" title="Sponsorships">🧾</a>
+      <a href="#" class="hover:text-black" title="Analytics">📈</a>
+    </nav>
+  </div>
+
+  <!-- Bottom Settings -->
+  <div class="flex flex-col items-center">
+    <a href="#" class="text-xl text-gray-700 hover:text-black" title="Settings">⚙️</a>
+  </div>
+</aside>
+
+
+    <!-- Main Content -->
+<main class="flex-1 p-10 ml-72">
+
+      <div class="flex justify-between items-center mb-10">
+        <h1 class="text-3xl font-bold">Upcoming Events</h1>
+        <div class="flex items-center space-x-4">
+          <span class="text-gray-800 font-medium">Jane</span>
+          <button class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 text-sm font-medium">+ New Event</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <!-- Event Cards -->
+        <div class="xl:col-span-2 space-y-6">
+          <div class="bg-white p-5 rounded-xl shadow">
+            <div class="flex justify-between items-center">
+              <div>
+                <h2 class="text-lg font-semibold">Summer Party</h2>
+                <p class="text-sm text-gray-600">📍 Parkside Pavilion · 🗓️ Aug 10, 205 · 🕐 1:00 PM–6:00 PM</p>
+                <p class="text-sm text-gray-500 mt-1">192 / 250 Capacity</p>
+              </div>
+              <button class="border text-sm text-gray-700 px-3 py-1 rounded hover:bg-gray-100">Edit</button>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl shadow">
+            <div class="flex justify-between items-center">
+              <div>
+                <h2 class="text-lg font-semibold">Miami Launch Mixer</h2>
+                <p class="text-sm text-gray-600">📍 Downtown Miami · 🗓️ Jul 12, 2025 · 🕐 6:30 PM–9:30 PM</p>
+                <p class="text-sm text-gray-500 mt-1">305 / 400 Capacity</p>
+              </div>
+              <button class="border text-sm text-gray-700 px-3 py-1 rounded hover:bg-gray-100">Edit</button>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl shadow">
+            <div class="flex justify-between items-center">
+              <div>
+                <h2 class="text-lg font-semibold">NYC Winter Gala</h2>
+                <p class="text-sm text-gray-600">📍 Metropolitan Center · 🗓️ Feb 19, 2026 · 🕐 7:00 PM–10:00 PM</p>
+                <p class="text-sm text-gray-500 mt-1">267 / 300 Capacity</p>
+              </div>
+              <button class="border text-sm text-gray-700 px-3 py-1 rounded hover:bg-gray-100">Edit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="space-y-6">
+          <!-- Analytics -->
+          <div class="bg-white rounded-xl p-5 shadow">
+            <h3 class="font-semibold mb-3 text-lg">Analytics Overview</h3>
+            <div class="text-sm space-y-1">
+              <p><strong class="text-xl">846</strong> RSVPs</p>
+              <p><strong class="text-xl">692</strong> Attendees</p>
+              <p><strong class="text-xl">38%</strong> Check In Rate</p>
+              <p class="text-sm text-gray-500 pt-2">⭐ 4.7 Avg. Rating</p>
+            </div>
+          </div>
+
+          <!-- Guest List -->
+          <div class="bg-white rounded-xl p-5 shadow">
+            <h3 class="font-semibold mb-3 text-lg">Guest List</h3>
+            <ul class="text-sm space-y-2">
+              <li class="flex justify-between">
+                <span class="text-green-600 font-medium">✔ Kristin Reld</span><span class="text-gray-500">Checked in</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="text-gray-700">● Hector Chavez</span><span class="text-gray-500">Scheduled</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="text-gray-700">● Emily Nguyen</span><span class="text-gray-500">Invited</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Add Guest -->
+          <div class="bg-white rounded-xl p-5 shadow">
+            <h3 class="font-semibold mb-3 text-lg">Snocknrow</h3>
+            <button class="w-full flex justify-between items-center text-sm text-gray-700 border px-4 py-2 rounded hover:bg-gray-50">
+              Add guest <span>➤</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

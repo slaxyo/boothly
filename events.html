@@ -7,6 +7,7 @@
   <script src="https://unpkg.com/@barba/core"></script>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
    <header class="navbar">
@@ -31,8 +32,9 @@
   <section class="event-list">
     <div class="event-card upcoming">
       <h2>Clarkston Summer Market</h2>
-      <p>📍 Clarkston Community Center<br>📅 July 6, 2025<br>🕙 10:00 AM – 4:00 PM</p>
-      <a href="vendor.html" class="cta">Vendor Application</a>
+      <p>📍 Clarkston Community Center<br>📅 July 20, 2025<br>🕙 10:00 AM – 4:00 PM</p>
+<button class="rsvp-btn" onclick="openRSVP('Clarkston Summer Market')">RSVP</button>
+<a class="rsvp-btn2" href="vendor.html">Apply for Vendor</a>
     </div>
 
     <div class="event-card past">
@@ -47,11 +49,98 @@
       <a href="#" class="cta-outline">Coming Soon</a>
     </div>
   </section>
+<!-- RSVP Modal -->
+<div class="rsvp-modal-overlay" id="rsvpModal" >
+  <div class="rsvp-modal-card">
+    <button class="rsvp-modal-close" onclick="closeRSVP()">×</button>
+    <h2 class="rsvp-modal-title">RSVP for <span id="eventName">this event</span></h2>
+    <form id="rsvpForm" class="rsvp-modal-form">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+<input type="tel" name="phone" id="phoneInput" placeholder="Phone Number (optional)" />
+
+      <input type="hidden" name="event" id="eventInput" />
+      <button type="submit" class="rsvp-submit-btn">Submit RSVP</button>
+    </form>
+  </div>
+</div>
+
+
 
   <footer class="footer">
     <p>&copy; 2025 Boothly Co. All rights reserved.</p>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<!-- Load Supabase first -->
+
+
+<script>
+const SUPABASE_URL = "https://stgcknunpvlcndtwxdmc.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN0Z2NrbnVucHZsY25kdHd4ZG1jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkwNTM2MTUsImV4cCI6MjA2NDYyOTYxNX0.H2JawYsroeA5Tnc_iIeGhRX0kLcUIk0bP3F7rK0JyX4";
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  // Handle RSVP form submission
+  document.getElementById("rsvpForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const phone = form.phone.value;
+    const eventName = form.event.value;
+
+ const { data, error } = await supabaseClient.from('rsvps').insert([
+
+      { name, email, phone, event: eventName }
+    ]);
+
+    if (error) {
+      alert("Something went wrong. Try again.");
+      console.error(error);
+    } else {
+      alert("Thanks! You've successfully RSVPed.");
+      closeRSVP();
+      form.reset();
+    }
+  });
+
+  // Open modal
+  function openRSVP(eventName) {
+document.getElementById("rsvpModal").classList.add("active");
+
+    document.getElementById("eventName").innerText = eventName;
+    document.getElementById("eventInput").value = eventName;
+  }
+document.body.style.overflow = 'hidden'; // on open
+document.body.style.overflow = ''; // on close
+
+  // Close modal
+  function closeRSVP() {
+document.getElementById("rsvpModal").classList.remove("active");
+
+  }
+  
+</script>
+
+<script>
+document.getElementById('phoneInput').addEventListener('input', function (e) {
+  let input = e.target.value.replace(/\D/g, ''); // remove all non-digits
+  if (input.length > 10) input = input.slice(0, 10); // limit to 10 digits
+
+  let formatted = '';
+  if (input.length > 0) {
+    formatted += '(' + input.substring(0, 3);
+  }
+  if (input.length >= 4) {
+    formatted += ') ' + input.substring(3, 6);
+  }
+  if (input.length >= 7) {
+    formatted += '-' + input.substring(6, 10);
+  }
+
+  e.target.value = formatted;
+});
+</script>
 
 
 </body>

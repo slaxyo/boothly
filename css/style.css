@@ -947,3 +947,210 @@ body {
   height: 60px;
   filter: brightness(1) invert(0);
 }
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.modal button[type="submit"] {
+  background: black;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+.rsvp-btn {
+  background: transparent;
+  color: #000;
+  border: 2px solid #000;
+  padding: 10px 16px;
+  font-weight: 500;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.rsvp-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.rsvp-btn2 {
+  background: black;
+  color: white;
+  border: 2px solid #000;
+  padding: 6px 12px;
+  font-weight: 500;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+  margin-left: 0px;
+  text-decoration: none;
+}
+
+.rsvp-btn2:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+button,
+.rsvp-btn2,
+.btn-primary,
+.btn-outline {
+  white-space: nowrap;
+}
+.rsvp-modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.rsvp-modal-card {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 18px;
+  width: 92%;
+  max-width: 420px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.rsvp-modal-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.rsvp-modal-form input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+
+.rsvp-modal-form input:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 1px #000;
+}
+
+.rsvp-submit-btn {
+  background: #000;
+  color: #fff;
+  padding: 12px;
+  width: 100%;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.rsvp-submit-btn:hover {
+  background: #333;
+}
+
+.rsvp-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+/* Overlay transition */
+.rsvp-modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Card transition */
+.rsvp-modal-card {
+  background: #fff;
+  padding: 32px;
+  border-radius: 18px;
+  width: 92%;
+  max-width: 420px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Active state (when open) */
+.rsvp-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.rsvp-modal-overlay.active .rsvp-modal-card {
+  transform: scale(1);
+  opacity: 1;
+}
+body.modal-open .content {
+  filter: blur(5px);
+}
