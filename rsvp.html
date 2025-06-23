@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSVP — Boothly Co.</title>
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 80px auto;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .form-container h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .form-container p {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .form-container button {
+      background-color: #374151;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .form-container button:hover {
+      background-color: #1f2937;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .tab {
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      background-color: #f3f4f6;
+      border: none;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background-color: #4b5563;
+      color: white;
+    }
+
+    .logo1 {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo1">Boothly Co.</div>
+    <nav class="nav-tabs">
+      <a href="index.html"><button class="tab">🏠 Home</button></a>
+      <a href="events.html"><button class="tab">📅 Events</button></a>
+      <a href="vendor.html"><button class="tab">🧺 Vendors</button></a>
+      <a href="contact.html"><button class="tab">✉️ Contact</button></a>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <h2>Clarkston Summer Market RSVP</h2>
+    <p>Follow us: <strong>@boothlyco</strong></p>
+    <form id="rsvpForm">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" name="phone" id="phoneInput" placeholder="Phone Number (optional)" />
+      <input type="hidden" name="event" value="Clarkston Summer Market" />
+      <button type="submit">Submit RSVP</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 Boothly Co. All rights reserved.
+  </footer>
+
+  <script>
+    const SUPABASE_URL = "https://stgcknunpvlcndtwxdmc.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN0Z2NrbnVucHZsY25kdHd4ZG1jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkwNTM2MTUsImV4cCI6MjA2NDYyOTYxNX0.H2JawYsroeA5Tnc_iIeGhRX0kLcUIk0bP3F7rK0JyX4";
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    document.getElementById("rsvpForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const phone = form.phone.value;
+      const event = form.event.value;
+
+      const { error } = await supabaseClient.from('rsvps').insert([
+        { name, email, phone, event }
+      ]);
+
+      if (error) {
+        alert("Something went wrong.");
+        console.error(error);
+      } else {
+        alert("Thanks! You've RSVPed.");
+        form.reset();
+      }
+    });
+
+    document.getElementById('phoneInput').addEventListener('input', function (e) {
+      let input = e.target.value.replace(/\D/g, '');
+      if (input.length > 10) input = input.slice(0, 10);
+      let formatted = '';
+      if (input.length > 0) formatted += '(' + input.substring(0, 3);
+      if (input.length >= 4) formatted += ') ' + input.substring(3, 6);
+      if (input.length >= 7) formatted += '-' + input.substring(6, 10);
+      e.target.value = formatted;
+    });
+  </script>
+</body>
+</html>
