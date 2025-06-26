@@ -56,7 +56,7 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const stripeLinks = {
   food: "https://buy.stripe.com/00wfZi3By9Oj5Na7E56Na00",
-  "non-food": "https://buy.stripe.com/28E3cw0pm0dJdfCe2t6Na01"
+  "non-food": "https://buy.stripe.com/dRmdRa1tq0dJejG2jL6Na06"
 };
 
 document.getElementById("vendorForm").addEventListener("submit", async function (e) {

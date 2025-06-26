@@ -42,7 +42,7 @@ const stripeLinks={
   market  :"https://buy.stripe.com/4gM7sM0pmd0v3F2f6x6Na03",
   headline    :"https://buy.stripe.com/cNi6oI9ZWbWr8ZmgaB6Na04",
   food    :"https://buy.stripe.com/00wfZi3By9Oj5Na7E56Na00",
-  "non-food":"https://buy.stripe.com/28E3cw0pm0dJdfCe2t6Na01"
+  "non-food":"https://buy.stripe.com/dRmdRa1tq0dJejG2jL6Na06"
 };
 
 /* safe getter – returns "" if element not found */
