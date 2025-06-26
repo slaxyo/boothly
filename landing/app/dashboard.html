@@ -2,128 +2,184 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard — Boothly</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boothly Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="css/dashboard.css"/>
 </head>
-<body class="bg-[#f9fafb] text-gray-900 font-sans">
+<body>
 
-<!-- Entire Dashboard Wrapper -->
-<div id="quoteSection" class="table-wrapper mt-10 block">
-  <div class="flex min-h-screen">
-    
-<aside class="fixed top-6 bottom-6 left-6 w-20 bg-white/30 backdrop-blur-md rounded-full shadow-xl z-50 flex flex-col justify-between py-6">
-  <!-- Top Section -->
-  <div class="flex flex-col items-center space-y-6">
-    <!-- Logo -->
-    <div class="w-10 h-10 bg-purple-600 text-white font-bold flex items-center justify-center rounded-full text-sm">
-      B
-    </div>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <span>📅</span>
+    <span>🧺</span>
+    <span>💼</span>
+    <span>📝</span>
+    <span>📊</span>
+    <span>⚙️</span>
+  </aside>
 
-    <!-- Nav Links -->
-    <nav class="flex flex-col items-center space-y-6 text-xl text-gray-700">
-      <a href="dashboard.html" class="hover:text-black" title="Dashboard">📦</a>
-      <a href="sponsorshipdash.html" class="hover:text-black" title="Sponsorships">🧾</a>
-      <a href="#" class="hover:text-black" title="Analytics">📈</a>
-    </nav>
+  <!-- Main Content -->
+  <div style="flex: 1; display: flex; flex-direction: column;">
+    <!-- Header -->
+    <header>
+      <div class="logo">Boothly</div>
+      <nav>
+        <a href="#">Events</a>
+        <a href="#">Vendors</a>
+        <a href="#">Sponsors</a>
+        <a href="#">RSVPs</a>
+        <a href="#">Messages</a>
+        <div class="icons">
+          <span>🔔</span>
+          <span>👤</span>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+
+      <!-- Top Metrics -->
+      <section class="metrics">
+        <div class="card">
+          <div class="title">Upcoming Events</div>
+          <div class="value">3 — Clarkston Market</div>
+        </div>
+        <div class="card">
+          <div class="title">Vendors Registered</div>
+          <div class="value">18 Today / 62 This Week</div>
+        </div>
+        <div class="card">
+          <div class="title">Sponsorships Secured</div>
+          <div class="value">$4,200</div>
+        </div>
+        <div class="card">
+          <div class="title">RSVPs Received</div>
+          <div class="value">321 (+12%)</div>
+        </div>
+        <div class="card">
+          <div class="title">Check-ins</div>
+          <div class="value">Live – 89</div>
+        </div>
+      </section>
+<!-- Sales Analytics Graph -->
+<section class="analytics-card" style="background: white; border-radius: 12px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-top: 8px;">
+  <div style="font-weight: 600; font-size: 14px; color: #555;">Total sales</div>
+  <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+    <div style="font-size: 28px; font-weight: 700;">$250,000</div>
+    <div style="color: green; font-weight: 500;">↑ 42%</div>
   </div>
-
-  <!-- Bottom Settings -->
-  <div class="flex flex-col items-center">
-    <a href="#" class="text-xl text-gray-700 hover:text-black" title="Settings">⚙️</a>
+  <div style="height: 200px; margin-top: 12px;">
+    <canvas id="salesChart"></canvas>
   </div>
-</aside>
+</section>
 
-
-    <!-- Main Content -->
-<main class="flex-1 p-10 ml-72">
-
-      <div class="flex justify-between items-center mb-10">
-        <h1 class="text-3xl font-bold">Upcoming Events</h1>
-        <div class="flex items-center space-x-4">
-          <span class="text-gray-800 font-medium">Jane</span>
-          <button class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 text-sm font-medium">+ New Event</button>
+      <!-- Events Feed -->
+      <section class="events-grid">
+        <div class="event-card">
+          <div class="title">Clarkston Market</div>
+          <div class="badge">🟢 Active</div>
+          <div>Date: July 20 — 12 PM</div>
+          <div>12 Vendors | 4 Sponsors | 93 RSVPs</div>
+          <button>Manage</button>
         </div>
-      </div>
-
-      <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
-        <!-- Event Cards -->
-        <div class="xl:col-span-2 space-y-6">
-          <div class="bg-white p-5 rounded-xl shadow">
-            <div class="flex justify-between items-center">
-              <div>
-                <h2 class="text-lg font-semibold">Summer Party</h2>
-                <p class="text-sm text-gray-600">📍 Parkside Pavilion · 🗓️ Aug 10, 205 · 🕐 1:00 PM–6:00 PM</p>
-                <p class="text-sm text-gray-500 mt-1">192 / 250 Capacity</p>
-              </div>
-              <button class="border text-sm text-gray-700 px-3 py-1 rounded hover:bg-gray-100">Edit</button>
-            </div>
-          </div>
-
-          <div class="bg-white p-5 rounded-xl shadow">
-            <div class="flex justify-between items-center">
-              <div>
-                <h2 class="text-lg font-semibold">Miami Launch Mixer</h2>
-                <p class="text-sm text-gray-600">📍 Downtown Miami · 🗓️ Jul 12, 2025 · 🕐 6:30 PM–9:30 PM</p>
-                <p class="text-sm text-gray-500 mt-1">305 / 400 Capacity</p>
-              </div>
-              <button class="border text-sm text-gray-700 px-3 py-1 rounded hover:bg-gray-100">Edit</button>
-            </div>
-          </div>
-
-          <div class="bg-white p-5 rounded-xl shadow">
-            <div class="flex justify-between items-center">
-              <div>
-                <h2 class="text-lg font-semibold">NYC Winter Gala</h2>
-                <p class="text-sm text-gray-600">📍 Metropolitan Center · 🗓️ Feb 19, 2026 · 🕐 7:00 PM–10:00 PM</p>
-                <p class="text-sm text-gray-500 mt-1">267 / 300 Capacity</p>
-              </div>
-              <button class="border text-sm text-gray-700 px-3 py-1 rounded hover:bg-gray-100">Edit</button>
-            </div>
-          </div>
+        <div class="event-card">
+          <div class="title">Eastside Flea</div>
+          <div class="badge">🟡 Setup</div>
+          <div>Date: Aug 1 — 11 AM</div>
+          <div>7 Vendors | 2 Sponsors | 34 RSVPs</div>
+          <button>Manage</button>
         </div>
+      </section>
 
-        <!-- Sidebar Column -->
-        <div class="space-y-6">
-          <!-- Analytics -->
-          <div class="bg-white rounded-xl p-5 shadow">
-            <h3 class="font-semibold mb-3 text-lg">Analytics Overview</h3>
-            <div class="text-sm space-y-1">
-              <p><strong class="text-xl">846</strong> RSVPs</p>
-              <p><strong class="text-xl">692</strong> Attendees</p>
-              <p><strong class="text-xl">38%</strong> Check In Rate</p>
-              <p class="text-sm text-gray-500 pt-2">⭐ 4.7 Avg. Rating</p>
-            </div>
-          </div>
-
-          <!-- Guest List -->
-          <div class="bg-white rounded-xl p-5 shadow">
-            <h3 class="font-semibold mb-3 text-lg">Guest List</h3>
-            <ul class="text-sm space-y-2">
-              <li class="flex justify-between">
-                <span class="text-green-600 font-medium">✔ Kristin Reld</span><span class="text-gray-500">Checked in</span>
-              </li>
-              <li class="flex justify-between">
-                <span class="text-gray-700">● Hector Chavez</span><span class="text-gray-500">Scheduled</span>
-              </li>
-              <li class="flex justify-between">
-                <span class="text-gray-700">● Emily Nguyen</span><span class="text-gray-500">Invited</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Add Guest -->
-          <div class="bg-white rounded-xl p-5 shadow">
-            <h3 class="font-semibold mb-3 text-lg">Snocknrow</h3>
-            <button class="w-full flex justify-between items-center text-sm text-gray-700 border px-4 py-2 rounded hover:bg-gray-50">
-              Add guest <span>➤</span>
-            </button>
-          </div>
+      <!-- Announcements -->
+      <section class="announcements">
+        <div class="announcement-card">
+          <strong>📢 Reminder</strong>
+          <p>Don’t forget to assign vendor booths for Clarkston Market!</p>
+          <p><em>Promote your next event today!</em></p>
         </div>
-      </div>
+      </section>
+
+      <!-- To-Do List -->
+      <section class="todo">
+        <div class="todo-card">
+          <strong>Assign Vendors</strong>
+          <p>Map vendors to booth slots.</p>
+          <button>Complete</button>
+        </div>
+        <div class="todo-card">
+          <strong>Review Sponsors</strong>
+          <p>3 pending applications to approve.</p>
+          <button>Review</button>
+        </div>
+        <div class="todo-card">
+          <strong>Export RSVPs</strong>
+          <p>Download guest list as CSV.</p>
+          <button>Download</button>
+        </div>
+      </section>
+
     </main>
   </div>
-</div>
+<script>
+  const ctx = document.getElementById('salesChart').getContext('2d');
 
+  const salesChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Jun 6', 'Jun 10', 'Jun 14', 'Jun 18', 'Jun 22', 'Jun 26', 'Jul 1', 'Jul 5'],
+      datasets: [
+        {
+          label: 'Jun 6–Jul 5, 2023',
+          data: [5000, 8000, 9000, 4000, 7000, 6500, 9000, 7500],
+          fill: true,
+          borderColor: '#3B82F6',
+          backgroundColor: 'rgba(59, 130, 246, 0.1)',
+          tension: 0.4
+        },
+        {
+          label: 'May 7–Jun 5, 2023',
+          data: [4500, 6000, 5500, 3500, 5000, 5200, 4800, 5000],
+          borderDash: [5, 5],
+          fill: false,
+          borderColor: '#93C5FD',
+          backgroundColor: 'transparent',
+          tension: 0.4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          ticks: {
+            callback: value => '$' + (value / 1000) + 'K'
+          },
+          beginAtZero: true
+        }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          labels: {
+            boxWidth: 12,
+            font: {
+              size: 12
+            }
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => '$' + ctx.formattedValue
+          }
+        }
+      }
+    }
+  });
+</script>
 </body>
 </html>
