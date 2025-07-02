@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boothly Co.</title>
   <script src="https://unpkg.com/@barba/core"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 </head>
@@ -39,21 +40,27 @@
   </nav>
 </header>
 
-<section class="hero">
-  <div class="hero-wrap">
-    <h1>Be Part of Atlanta’s Most Loved Markets</h1>
-    <p>Boothly hosts high-energy events that connect local vendors and community sponsors with thousands of engaged shoppers across the city.</p>
-    <a href="vendor.html" class="btn-primary" style="padding: 10px; margin: 10px;">Join as a Vendor</a>
-    <div style="margin:15px;">
-      <div class="rating-pill">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF6120">
-          <path d="M12 17.3l6.18 3.7-1.64-7.03 5.46-4.73-7.09-.6L12 2 9.09 8.64l-7.09.6 5.46 4.73L5.82 21z"/>
-        </svg>
-        <span>4.9</span>
-        <span>· 120+ vendors</span>
-      </div>
-    </div>
-    <small>Interested in sponsoring? <a style="color:black;" href="sponsor/application.html">Click here</a></small>
+<section class="text-center py-28 px-6 bg-white">
+  <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-6">
+    Be Part of Atlanta’s Most Loved<br>Markets
+  </h1>
+  <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+    Boothly hosts high-energy events that connect local vendors and community sponsors with thousands of engaged shoppers across the city.
+    <strong class="text-black font-medium"><br> Be apart of something great. RSVP Today.</strong>
+  </p>
+  <div class="flex justify-center gap-4 mb-6 flex-wrap">
+    <a href="https://boothly.co/rsvp" class="bg-black text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-gray-800">RSVP Now</a>
+    <a href="https://boothly.co/vendors.html" class="border border-gray-300 text-sm px-6 py-3 rounded-md font-semibold hover:bg-gray-100">Vendor Application</a>
+  </div>
+  <div class="flex justify-center items-center space-x-2 text-sm text-gray-500">
+    <img src="https://img.icons8.com/emoji/20/star-emoji.png" alt="star" />
+    <span><strong>4.8 stars</strong> · 500+ reviews</span>
+  </div>
+   <div class="flex justify-center items-center space-x-2 text-sm text-gray-500">
+    <span style="text-decoration: underline;"><strong><a href="sponsor/application.html">Sponsor Application</a></strong></span>
+  </div>
+ <div class="mt-12 max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md flex justify-center items-center">
+    <img src="img/rsvp.png" alt="Boothly app preview" style="width:75%;" />
   </div>
 </section>
 

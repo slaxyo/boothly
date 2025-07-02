@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boothly Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <header>
+      <h1>Welcome to Boothly</h1>
+      <p>Manage your profile, payments, and receipts.</p>
+    </header>
+
+    <section class="profile-section">
+      <h2>Your Info</h2>
+      <form id="profileForm">
+        <input type="text" placeholder="Business/Org Name" id="businessName" />
+        <input type="text" placeholder="Phone Number" id="phone" />
+        <input type="text" placeholder="Social Media Link" id="social" />
+        <input type="file" id="logoUpload" />
+        <button type="submit">Save Info</button>
+      </form>
+    </section>
+
+    <section class="payment-section">
+      <h2>Invoices</h2>
+      <div id="invoiceList">
+        <!-- Invoices will appear here -->
+      </div>
+    </section>
+
+    <section class="history-section">
+      <h2>Payment History</h2>
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Event</th><th>Amount</th><th>Status</th><th>Receipt</th></tr>
+        </thead>
+        <tbody id="historyTable">
+          <!-- History rows will be added here -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
