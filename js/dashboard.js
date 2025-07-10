@@ -63,26 +63,28 @@ async function loadVendors() {
     if (v.checkedIn) checkedIn++;
 
     const row = document.createElement("tr");
-    row.innerHTML = `
-      <td colspan="11">
-        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; align-items: flex-start;">
-          <div style="flex: 1;">
-            <strong>${v.vendorName}</strong> — ${v.vendorType}<br>
-            <small>Contact:</small> ${v.contactName} <br>  Phone: ${v.phone} <br> Email: ${v.email}<br>
-            <small>Setup:</small> ${v.setupTime} <br> Power: ${v.power} <br> Table: ${v.table}<br>
-            <small>Description:</small> ${v.description}<br>
-            ${v.social ? `<small>Social:</small> ${v.social}<br>` : ""}
-            <span class="note-toggle" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">Toggle Notes</span>
-            <div class="hidden-note">${v.notes || ""}</div>
-          </div>
-          <div style="min-width: 140px; text-align: right;">
-            <button onclick="toggleCheckIn(${v.id}, ${v.checkedIn})" ${v.checkedIn ? 'class="checked-in"' : ''}>${v.checkedIn ? "Checked In" : "Check In"}</button><br>
-            <button onclick="editVendor(${v.id}, \`${v.vendorName}\`, \`${v.contactName}\`, \`${v.phone}\`, \`${v.email}\`, \`${v.notes || ""}\`)" style="margin-top: 6px;">Edit</button>
-            <button onclick="deleteVendor(${v.id})">Delete</button>
-          </div>
-        </div>
-      </td>
-    `;
+row.innerHTML = `
+  <td colspan="11">
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; align-items: flex-start;">
+      <div style="flex: 1;">
+        <strong>${v.vendorName}</strong> — ${v.vendorType}<br>
+        <small>Contact:</small> ${v.contactName} <br>  Phone: ${v.phone} <br> Email: ${v.email}<br>
+        <small>Setup:</small> ${v.setupTime} <br> Power: ${v.power} <br> Table: ${v.table}<br>
+        <small>Description:</small> ${v.description}<br>
+        ${v.social ? `<small>Social:</small> ${v.social}<br>` : ""}
+        ${v.licenseUrl ? `<small>Business License:</small> <a href="${v.licenseUrl}" target="_blank">View File</a><br>` : ""}
+        <span class="note-toggle" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">Toggle Notes</span>
+        <div class="hidden-note">${v.notes || ""}</div>
+      </div>
+      <div style="min-width: 140px; text-align: right;">
+        <button onclick="toggleCheckIn(${v.id}, ${v.checkedIn})" ${v.checkedIn ? 'class="checked-in"' : ''}>${v.checkedIn ? "Checked In" : "Check In"}</button><br>
+        <button onclick="editVendor(${v.id}, \`${v.vendorName}\`, \`${v.contactName}\`, \`${v.phone}\`, \`${v.email}\`, \`${v.notes || ""}\`)" style="margin-top: 6px;">Edit</button>
+        <button onclick="deleteVendor(${v.id})">Delete</button>
+      </div>
+    </div>
+  </td>
+`;
+
     tbody.appendChild(row);
   });
 
