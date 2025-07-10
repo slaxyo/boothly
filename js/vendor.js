@@ -55,11 +55,13 @@ document.getElementById('social').addEventListener('blur', function(e) {
 });
 
 const stripeLinks = {
-  food: "https://buy.stripe.com/00wfZi3By9Oj5Na7E56Na00",
-  "non-food": "https://buy.stripe.com/dRmdRa1tq0dJejG2jL6Na06"
+  "food_no": "https://buy.stripe.com/00wfZi3By9Oj5Na7E56Na00",         // food, no power ($50)
+  "food_yes": "https://buy.stripe.com/4gMaEY3By7Gb7Vi4rT6Na08",            // food, with power ($85)
+  "non-food_no": "https://buy.stripe.com/dRmdRa1tq0dJejG2jL6Na06",    // non-food, no power ($35)
+  "non-food_yes": "https://buy.stripe.com/9B66oIc849Oj6Re0bD6Na09"         // non-food, with power ($70)
 };
 
- document.getElementById("vendorForm").addEventListener("submit", async function (e) {
+document.getElementById("vendorForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const vendorName = document.getElementById("vendorName").value;
@@ -82,12 +84,11 @@ const stripeLinks = {
     const safeVendorName = vendorName.replace(/\s+/g, "_").toLowerCase();
     const filePath = `${safeVendorName}_${timestamp}_${file.name}`;
 
-const { error: uploadError } = await supabaseClient.storage
-  .from("licenses")
-  .upload(filePath, file, {
-    contentType: file.type
-  });
-
+    const { error: uploadError } = await supabaseClient.storage
+      .from("licenses")
+      .upload(filePath, file, {
+        contentType: file.type
+      });
 
     if (uploadError) {
       alert("Failed to upload business license. Please try again.");
@@ -115,7 +116,7 @@ const { error: uploadError } = await supabaseClient.storage
     table,
     social,
     notes,
-    licenseUrl // 📎 Add to vendors table
+    licenseUrl
   };
 
   // Submit to Supabase table
@@ -127,13 +128,16 @@ const { error: uploadError } = await supabaseClient.storage
     return;
   }
 
-  // Redirect to payment
-  const stripeLinks = {
-    food: "https://buy.stripe.com/00wfZi3By9Oj5Na7E56Na00",
-    "non-food": "https://buy.stripe.com/dRmdRa1tq0dJejG2jL6Na06"
-  };
+  // DEBUG LOGGING TO VERIFY VALUES
+  const paymentKey = `${vendorType}_${power}`;
+  const paymentUrl = stripeLinks[paymentKey];
 
-  const paymentUrl = stripeLinks[vendorType];
+  console.log("vendorType:", vendorType);
+  console.log("power:", power);
+  console.log("paymentKey:", paymentKey);
+  console.log("paymentUrl:", paymentUrl);
+
+  // Redirect to Stripe or show fallback
   if (paymentUrl) {
     document.getElementById("paymentFallbackLink").href = paymentUrl;
     window.location.href = paymentUrl;
@@ -144,6 +148,7 @@ const { error: uploadError } = await supabaseClient.storage
     showStep(currentStep);
   }
 });
+
 
 function toggleLicenseField() {
   const vendorTypeSelect = document.getElementById("vendorType");
