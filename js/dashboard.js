@@ -72,6 +72,7 @@ row.innerHTML = `
         <small>Setup:</small> ${v.setupTime} <br> Power: ${v.power} <br> Table: ${v.table}<br>
         <small>Description:</small> ${v.description}<br>
         ${v.social ? `<small>Social:</small> ${v.social}<br>` : ""}
+        <small>Paid Status:</small> ${v.paid === true ? "TRUE" : v.paid === false ? "FALSE" : "NULL"}<br>
         ${v.licenseUrl ? `<small>Business License:</small> <a href="${v.licenseUrl}" target="_blank">View File</a><br>` : ""}
         <span class="note-toggle" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">Toggle Notes</span>
         <div class="hidden-note">${v.notes || ""}</div>
