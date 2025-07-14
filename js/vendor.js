@@ -55,10 +55,10 @@ document.getElementById('social').addEventListener('blur', function(e) {
 });
 
 const stripeLinks = {
-  "food_no": "https://buy.stripe.com/00wfZi3By9Oj5Na7E56Na00",         // food, no power ($50)
-  "food_yes": "https://buy.stripe.com/4gMaEY3By7Gb7Vi4rT6Na08",            // food, with power ($85)
-  "non-food_no": "https://buy.stripe.com/dRmdRa1tq0dJejG2jL6Na06",    // non-food, no power ($35)
-  "non-food_yes": "https://buy.stripe.com/9B66oIc849Oj6Re0bD6Na09"         // non-food, with power ($70)
+  "food_no": "https://buy.stripe.com/cNi5kEb406C7grOcYp6Na0c",         // food, no power ($75)
+  "food_yes": "https://buy.stripe.com/fZu5kE3BybWrejG0bD6Na0d",            // food, with power ($85)
+  "non-food_no": "https://buy.stripe.com/cNicN67RO8KfejG8I96Na0b",    // non-food, no power ($35)
+  "non-food_yes": "https://buy.stripe.com/dRm00k2xu4tZb7u3nP6Na0e"         // non-food, with power ($70)
 };
 
 document.getElementById("vendorForm").addEventListener("submit", async function (e) {
