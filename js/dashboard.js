@@ -49,7 +49,11 @@ function checkPassword() {
 }
 
 async function loadVendors() {
-  const { data, error } = await supabaseClient.from("vendors").select("*");
+const { data, error } = await supabaseClient
+  .from("vendors")
+  .select("*")
+  .order("created_at", { ascending: true }); // or false for newest first
+
   if (error) return console.error("Load error:", error);
 
   const tbody = document.querySelector("#vendorTable tbody");
@@ -79,6 +83,10 @@ row.innerHTML = `
       </div>
       <div style="min-width: 140px; text-align: right;">
         <button onclick="toggleCheckIn(${v.id}, ${v.checkedIn})" ${v.checkedIn ? 'class="checked-in"' : ''}>${v.checkedIn ? "Checked In" : "Check In"}</button><br>
+        <button onclick="togglePaid(${v.id}, ${v.paid})" style="margin-top: 6px;">
+  ${v.paid ? "Mark Unpaid" : "Mark Paid"}
+</button><br>
+
         <button onclick="editVendor(${v.id}, \`${v.vendorName}\`, \`${v.contactName}\`, \`${v.phone}\`, \`${v.email}\`, \`${v.notes || ""}\`)" style="margin-top: 6px;">Edit</button>
         <button onclick="deleteVendor(${v.id})">Delete</button>
       </div>
@@ -90,6 +98,23 @@ row.innerHTML = `
   });
 
   vendorStats.textContent = `Total Vendors: ${total} | Checked In: ${checkedIn} | Not Checked In: ${total - checkedIn}`;
+}
+async function togglePaid(id, currentPaidStatus) {
+  const newStatus = !currentPaidStatus;
+
+  const { data, error } = await supabaseClient
+    .from('vendors')
+    .update({ paid: newStatus })
+    .eq('id', id);
+
+  if (error) {
+    alert("Error updating payment status");
+    console.error(error);
+    return;
+  }
+
+  // Refresh the list or row
+  loadVendors(); // or however you're re-rendering the table
 }
 
 async function toggleCheckIn(id, currentStatus) {
