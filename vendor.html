@@ -36,7 +36,6 @@
 
   <!-- Navigation Bar -->
 
-
   <!-- Form Content -->
   <main class="container">
     <img src="img/boothly.png" alt="Boothly Logo" style="width: 20%;" class="logo" />
@@ -115,14 +114,18 @@
   <label for="notes">Additional Notes (Optional)</label>
   <textarea id="notes" name="notes" rows="3"></textarea>
 
-  <label class="checkbox-label">
-    <input type="checkbox" required />
-    I agree to the following <a href="policy/tos.html">terms and conditions.</a>
+<div class="checkbox-wrapper">
+  <input type="checkbox" id="agree" required />
+  <label for="agree">
+    I agree to the following <a href="policy/tos.html" target="_blank">terms and conditions</a>.
   </label>
+</div>
+
+
 
   <div class="form-buttons">
     <button type="button" onclick="prevStep()">Back</button>
-    <button type="submit">Submit</button>
+    <button type="submit">Sumbit & Pay</button>
   </div>
 
       </div>
